@@ -1,0 +1,40 @@
+ if (neg1 && neg2)
+      {
+        // Both numbers are negative: -a + -b = -(a + b)
+        printf("Res: -");
+        addition(head1, tail1, head2, tail2, &res_h, &res_t);
+    }
+    else if (neg1 && !neg2)
+    {
+        // First number is negative: -a + b = b - a
+        if (compare_ARG(head2, head1) >= 0)
+        {
+            Subtraction(head2, tail2, head1, tail1, &res_h, &res_t);
+        }
+        else
+        {
+            printf("Res: -");
+            Subtraction(head1, tail1, head2, tail2, &res_h, &res_t);
+        }
+    }
+    else if (!neg1 && neg2)
+    {
+        // Second number is negative: a + -b = a - b
+        if (compare_ARG(head1, head2) >= 0)
+        {
+            Subtraction(head1, tail1, head2, tail2, &res_h, &res_t);
+        }
+        else
+        {
+            printf("Res: -");
+            Subtraction(head2, tail2, head1, tail1, &res_h, &res_t);
+        }
+    }
+    else
+    {
+        // Both numbers are positive: a + b
+        addition(head1, tail1, head2, tail2, &res_h, &res_t);
+    }
+    break;
+
+      
